@@ -8,4 +8,12 @@
           </h1>
         </section>
       </aside>
+       <div class="col-md-8">
+        <% if @user.fixtures.any? %>
+          <h3>Fixtures (<%= @user.fixtures.count %>)</h3>
+          <ol class="fixtures">
+            <%= render @fixtures %>
+          </ol>
+        <% end %>
+      </div>
     </div>

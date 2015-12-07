@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+      has_many :fixtures, dependent: :destroy
       attr_accessor :remember_token
 	  
       validates :password, presence: true, length: { minimum: 6 }
@@ -37,5 +38,8 @@ class User < ActiveRecord::Base
        def forget
           update_attribute(:remember_digest, nil)
        end
-	  
-    end
+
+	  def feed
+                Fixture.where("user_id = ?", id)
+            end
+        end

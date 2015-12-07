@@ -1,8 +1,4 @@
 class StaticPagesController < ApplicationController
-# Simple comment: Static pages actions
-  def home
-  end
-
 
   def help
   end
@@ -15,5 +11,12 @@ class StaticPagesController < ApplicationController
   
   def faq
   end
+
+   def home
+         if logged_in?
+            @fixture  = current_user.fixtures.build
+            @feed_items = current_user.feed
+         end
+    end
 
 end
