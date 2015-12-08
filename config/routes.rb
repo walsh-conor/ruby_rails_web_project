@@ -3,8 +3,14 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'users/new'
-  resources :users 
+    resources :users do
+    member do
+      get :following, :followers
+    end
+  end 
   resources :fixtures, only: [:create, :destroy] 
+    resources :relationships,       only: [:create, :destroy]
+
  root 'static_pages#home'
 
    get 'help'    => 'static_pages#help'
