@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get 'sessions/new'
-
   get 'users/new'
     resources :users do
     member do
@@ -11,13 +10,15 @@ Rails.application.routes.draw do
   resources :fixtures, only: [:create, :destroy] 
     resources :relationships,       only: [:create, :destroy]
 
+    match '/contacts',     to: 'contacts#new',             via: 'get'
+    resources "contacts", only: [:new, :create]
+
  root 'static_pages#home'
 
-   get 'help'    => 'static_pages#help'
+  get 'products'    => 'products#index'
+  get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
-  get 'contact' => 'static_pages#contact'
   get 'signup'  => 'users#new'
-  get 'faq' => 'static_pages#faq'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'

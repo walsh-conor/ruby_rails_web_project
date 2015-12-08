@@ -1,7 +1,7 @@
     source 'https://rubygems.org'
 
     gem 'rails',        '4.2.2'
-    gem 'bootstrap-sass',       '3.2.0.0'
+    gem 'bootstrap-sass',       '3.3.1'
 # Use sqlite3 as the database for Active Record
 
 
@@ -16,7 +16,8 @@
     gem 'turbolinks',   '2.3.0'
     gem 'jbuilder',     '2.2.3'
     gem 'sdoc',         '0.4.0', group: :doc
-    
+    gem 'mail_form'
+    gem 'simple_form'
 
     group :development, :test do
       gem 'sqlite3',     '1.3.9'
