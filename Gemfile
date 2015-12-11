@@ -18,6 +18,7 @@
     gem 'sdoc',         '0.4.0', group: :doc
     gem 'mail_form'
     gem 'simple_form'
+    gem 'mysql', '2.9.1'
 
     group :development, :test do
       gem 'sqlite3',     '1.3.9'
